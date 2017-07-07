@@ -19,40 +19,14 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.hawkings;
-
-import de.d3adspace.hawkings.exception.NoSuchConsumerException;
-import de.d3adspace.hawkings.registry.HawkingsConsumerRegistry;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Consumer;
+package de.d3adspace.hawkings.exception;
 
 /**
  * @author Felix 'SasukeKawaii' Klauke
  */
-public class Hawkings<ConsumingType> {
+public class NoSuchConsumerException extends RuntimeException {
 	
-	private final AtomicInteger CALLBACK_ID = new AtomicInteger();
-	private final HawkingsConsumerRegistry<ConsumingType> registry;
-	
-	public Hawkings() {
-		this.registry = new HawkingsConsumerRegistry<>();
-	}
-	
-	public void registerConsumer(Consumer<ConsumingType> consumer) {
-		this.registry.registerConsumer(CALLBACK_ID.get(), consumer);
-	}
-	
-	public void invokeConsumer(int consumerId, ConsumingType obj) {
-		Consumer<ConsumingType> consumer = this.registry.getConsumer(consumerId);
-		
-		if (consumer == null) {
-			throw new NoSuchConsumerException("There is no consumer with id " + consumerId);
-		}
-		
-		consumer.accept(obj);
-	}
-	
-	public int incrementAndGetId() {
-		return CALLBACK_ID.incrementAndGet();
+	public NoSuchConsumerException(String message) {
+		super(message);
 	}
 }
