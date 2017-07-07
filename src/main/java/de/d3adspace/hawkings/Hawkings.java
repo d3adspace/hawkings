@@ -42,7 +42,11 @@ public class Hawkings<ConsumingType> {
 	}
 	
 	public void invokeConsumer(int consumerId, ConsumingType obj) {
-		this.registry.getConsumer(consumerId).accept(obj);
+		Consumer<ConsumingType> consumer = this.registry.getConsumer(consumerId);
+		
+		if (consumer != null) {
+			consumer.accept(obj);
+		}
 	}
 	
 	public int incrementAndGetId() {
