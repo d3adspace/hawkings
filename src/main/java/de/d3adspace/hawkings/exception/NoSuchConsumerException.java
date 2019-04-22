@@ -22,10 +22,12 @@
 package de.d3adspace.hawkings.exception;
 
 /**
+ * Thrown when a consumer couldn't be found.
+ *
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class NoSuchConsumerException extends RuntimeException {
-	
+
 	public NoSuchConsumerException(String message) {
 		super(message);
 	}

@@ -29,25 +29,46 @@ import java.util.function.Consumer;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class HawkingsConsumerRegistry<ConsumingType> {
-	
+
+	/**
+	 * Contains all known callbacks.
+	 */
 	private final Map<Integer, Consumer<ConsumingType>> callbacks;
-	
+
+	/**
+	 * Create a new consumer egistry.
+	 */
 	public HawkingsConsumerRegistry() {
 		this.callbacks = new ConcurrentHashMap<>();
 	}
-	
+
+	/**
+	 * Register a consumer using the given id.
+	 *
+	 * @param consumerId The consumer id.
+	 * @param consumer The consumer.
+	 */
 	public void registerConsumer(int consumerId, Consumer<ConsumingType> consumer) {
 		this.callbacks.put(consumerId, consumer);
 	}
-	
+
+	/**
+	 * Load the consumer with the given id.
+	 *
+	 * @param consumerId The id.
+	 * @return The consumer.
+	 */
 	public Consumer<ConsumingType> getConsumer(int consumerId) {
 		Consumer<ConsumingType> consumer = this.callbacks.get(consumerId);
-		
+
 		callbacks.remove(consumerId);
-		
+
 		return consumer;
 	}
-	
+
+	/**
+	 * Check if there is a consumer with the given id.
+	 */
 	public boolean hasConsumer(int consumerId) {
 		return this.callbacks.containsKey(consumerId);
 	}

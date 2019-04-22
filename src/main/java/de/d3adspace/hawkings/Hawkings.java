@@ -30,29 +30,49 @@ import java.util.function.Consumer;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class Hawkings<ConsumingType> {
-	
+
+	/**
+	 * The callback id that will be incremented after every new consumer.
+	 */
 	private final AtomicInteger CALLBACK_ID = new AtomicInteger();
+
+	/**
+	 * The registry containing all existent consumers.
+	 */
 	private final HawkingsConsumerRegistry<ConsumingType> registry;
-	
+
+	/**
+	 * Create a new hawkings instanc.e
+	 */
 	public Hawkings() {
 		this.registry = new HawkingsConsumerRegistry<>();
 	}
-	
-	public void registerConsumer(Consumer<ConsumingType> consumer) {
-		this.registry.registerConsumer(CALLBACK_ID.get(), consumer);
+
+	/**
+	 * Register a consumer
+	 *
+	 * @param consumer The consumer to register.
+	 * @return The id of the registered consumer.
+	 */
+	public int registerConsumer(Consumer<ConsumingType> consumer) {
+		int callbackId = CALLBACK_ID.getAndIncrement();
+		registry.registerConsumer(callbackId, consumer);
+		return callbackId;
 	}
-	
+
+	/**
+	 * Invoke the consumer with the given id using the given argument.
+	 *
+	 * @param consumerId The consumer id.
+	 * @param obj The argument to consume.
+	 */
 	public void invokeConsumer(int consumerId, ConsumingType obj) {
 		Consumer<ConsumingType> consumer = this.registry.getConsumer(consumerId);
-		
+
 		if (consumer == null) {
 			throw new NoSuchConsumerException("There is no consumer with id " + consumerId);
 		}
-		
+
 		consumer.accept(obj);
-	}
-	
-	public int incrementAndGetId() {
-		return CALLBACK_ID.incrementAndGet();
 	}
 }
