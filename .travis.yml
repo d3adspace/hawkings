@@ -1,0 +1,17 @@
+################
+### Language ###
+################
+language: java
+
+jdk:
+  - oraclejdk8
+
+#####################
+### Notifications ###
+#####################
+notifications:
+  email: false
+
+script:
+  - mvn clean test compile
+
