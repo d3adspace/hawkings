@@ -13,5 +13,5 @@ notifications:
   email: false
 
 script:
-  - mvn clean test compile
+  - mvn clean test compile package
 
