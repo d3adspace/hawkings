@@ -3,8 +3,11 @@
 ################
 language: java
 
+###########
+### JDK ###
+###########
 jdk:
-  - oraclejdk8
+- oraclejdk8
 
 #####################
 ### Notifications ###
@@ -12,12 +15,25 @@ jdk:
 notifications:
   email: false
 
+####################
+### Build script ###
+####################
 script:
-  - mvn clean test compile package
+- mvn clean test compile package
 
+##################
+### Deployment ###
+##################
 deploy:
   provider: script
-  script: mvn deploy
+  script: mvn deploy --settings deploy/maven-settings.xml
   on:
     tags: true
 
+###################
+### Environment ###
+###################
+env:
+  global:
+  - secure: W36K3aZ8lRSgQL4iBhFgb/YVsxuo9zrcFVBe1CwyTssXhNi71f/AHpGGpHjT8eWeZKRULvZ3oFOjU4EUc3Yukx5vEIgwT5SqwvMr7Q5eEtM6ijWGH8dz6rHiT7aL9LmwSNq1gwzdL8rTQQ9ttmmKU6QycTatGhEjs/r4FUeaaw4dsLCKogMnWr/1aU0V1TKHtsKGwOXl4LOIrO28+z/n4V9Z4CI2DKfeA8fisEUDj2pKsziclH7QTJDm4J7+IIKE3gbYgBwgnaTQjLlDEeiyucnY4UtmFe2sQS7xUvdqR0FGPY+HR38WamDBKF1sWKK28ISuMR5MXKOJDiQDfWj9iPpQyQSMGn5L+AiJlMyrHDW1lnwiucg++CjDNyJpsAuttY1lbHqlQwEFfZwPaVNwkly6WPQYLAg7d5Uwtt2KBVvqQ0ZXKye8Jq8z4ZqMxAhPo3yQxG4591Tu7T5EPE4lFUBf8f7xesMrPCNSH6IixwbdGi5gg7hWVAhRZcm+hxmcc6Rk6UNCKzA+f4Y/+kIP8F1LZXCsy22Sr8sXnUs/7fRJZxVq6R7SGO3ZWbBbbkwgkGzXpzki/D4XDDl2HF2vMJBpuAh4WVG4C72Aa1yCYHp+FUawQPl1D4ARenDvZ0nsRoWsoS4Ay8pEngVfz23dGHfJhp7ELb8tEEDZ1HgghuM=
+  - secure: CRQzfpZr3ozLiBb2A5FTlWRDTcCRP6mOKfOO2DiQnddctGoSyegoPmQuGI0h4wjPnblVRxNohDiH9Sa4LzRvoCfvkxGjZvGT9qpL/Ht/+tmpdbgecw/Y51eFE2W6TT18/dip1k0qW/l36zt9kd/L5J8PpB9ilLaZlj1ht6GIAHWxnaLGZAI0/rMlHEwgmubIqFPGjjmIQIeLieRho09AjWgy7QoS3Gao+kJhYo6EteOdIlfuCJVJ5jaBfAENu1FcsNBOYTfuuoyDyiZ8uAZTlzHf0ZGVzuM6k1QhR5oucfCPWf5BzEWaPRCQ3bBG+L2wg80oW2/iOuzUJ9tCD4jzWkk237CmKKzAdrWGtAEWfTnCT4rQVOp5c9YIH9HEcTq7SiHF22lsxEaZH7r5gQ/UhxcCH+qCb7jLcGA7gFE5nVfimeEePbZUw8WXSNnClRCKT/JpmJ4qWzRJDruoQpwUGxhBzkGa0cetkkfGG0cjsQhwKHQJUGspgjrE+PHvLBlQ2/tBby7JYOxSAIg0SbXjYJlQf82l/ahn4KSGaNrFwrq6Iqe/UAAbhHI38T+D9Zy98l6yZNWS/bZUfK42cyFtq8fa4/b220sMBFtMGicbyfCT/T9f/7RzfT9ZoF027QKb6cT3KLdqZXlSW5XX7vZ/W1F6LeiAua4CvJy/gIuqa8c=
