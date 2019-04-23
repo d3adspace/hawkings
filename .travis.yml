@@ -15,3 +15,9 @@ notifications:
 script:
   - mvn clean test compile package
 
+deploy:
+  provider: script
+  script: mvn deploy
+  on:
+    tags: true
+
