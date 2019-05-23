@@ -6,8 +6,8 @@ Very simple and more or less useful framework to provide a local repository of l
 
 |             	| Build Status                                                                                                                                              	| Test Code Coverage                                                                                                                                               	|
 |-------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| Master      	| [![Build Status](https://travis-ci.org/FelixKlauke/hawkings.svg?branch=master)](https://travis-ci.org/FelixKlauke/hawkings) 	| [![codecov](https://codecov.io/gh/FelixKlauke/hawkings/branch/master/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/hawkings) 	|
-| Development 	| [![Build Status](https://travis-ci.org/FelixKlauke/hawkings.svg?branch=dev)](https://travis-ci.org/FelixKlauke/hawkings)    	| [![codecov](https://codecov.io/gh/FelixKlauke/hawkings/branch/dev/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/hawkings)    	|
+| Master      	| [![Build Status](https://travis-ci.org/d3adspace/hawkings.svg?branch=master)](https://travis-ci.org/d3adspace/hawkings) 	| [![codecov](https://codecov.io/gh/d3adspace/hawkings/branch/master/graph/badge.svg)](https://codecov.io/gh/d3adspace/hawkings) 	|
+| Development 	| [![Build Status](https://travis-ci.org/d3adspace/hawkings.svg?branch=dev)](https://travis-ci.org/d3adspace/hawkings)    	| [![codecov](https://codecov.io/gh/d3adspace/hawkings/branch/dev/graph/badge.svg)](https://codecov.io/gh/d3adspace/hawkings)    	|
 
 # Installation / Usage
 
