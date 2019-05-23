@@ -22,6 +22,6 @@ _Hwakings:_
 <dependency>
     <groupId>de.d3adspace</groupId>
     <artifactId>hawkings</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
 </dependency>
 ```
