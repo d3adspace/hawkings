@@ -17,7 +17,7 @@ Very simple and more or less useful framework to provide a local repository of l
 
 **Maven dependencies**
 
-_Hwakings:_
+_Hawkings:_
 ```xml
 <dependency>
     <groupId>de.d3adspace</groupId>
