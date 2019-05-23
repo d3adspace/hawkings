@@ -15,6 +15,23 @@ Very simple and more or less useful framework to provide a local repository of l
 - Clone this repo
 - Installh: ```mvn clean install```
 
+**Maven repositories**
+```xml
+<repositories>
+    <repository>
+        <id>klauke-enterprises-maven-releases</id>
+        <name>Klauke Enterprises Maven Releases</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+    </repository>
+
+    <repository>
+        <id>klauke-enterprises-maven-snapshots</id>
+        <name>Klauke Enterprises Maven Snapshots</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+    </repository>
+</repositories>
+```
+
 **Maven dependencies**
 
 _Hawkings:_
